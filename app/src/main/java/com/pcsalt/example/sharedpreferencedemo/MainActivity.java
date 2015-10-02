@@ -50,7 +50,13 @@ public class MainActivity extends AppCompatActivity {
             PrefUtil.saveString(mContext, key, value);
             mEditTextKey.setText("");
             mEditTextValue.setText("");
-            mPrefDataList.add(new PrefData(key, value));
+            PrefData newPrefData = new PrefData(key, value);
+            if (mPrefDataList.contains(newPrefData)) {
+                int index = mPrefDataList.indexOf(newPrefData);
+                mPrefDataList.remove(index);
+                mPrefAdapter.notifyItemRemoved(index);
+            }
+            mPrefDataList.add(newPrefData);
             int position = mPrefAdapter.getItemCount() - 1;
             mPrefAdapter.notifyItemInserted(position);
         }

@@ -14,4 +14,14 @@ public final class PrefData {
         this.key = key;
         this.value = value;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        return object instanceof PrefData && key.equals(((PrefData) object).key);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
