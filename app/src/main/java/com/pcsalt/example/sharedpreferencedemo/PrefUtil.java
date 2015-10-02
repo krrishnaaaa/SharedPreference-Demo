@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by krrishnaaaa on Oct 02, 2015
  */
@@ -20,4 +24,15 @@ public final class PrefUtil {
         return getPref(context).getString(key, defValue);
     }
 
+    public static List<PrefData> getAllValues(Context context) {
+        Map<String, ?> values = getPref(context).getAll();
+        List<PrefData> prefDataList = new ArrayList<>();
+        for (Map.Entry<String, ?> entry : values.entrySet()) {
+            PrefData prefData = new PrefData();
+            prefData.key = entry.getKey();
+            prefData.value = entry.getValue().toString();
+            prefDataList.add(prefData);
+        }
+        return prefDataList;
+    }
 }

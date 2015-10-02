@@ -9,11 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private Context mContext = MainActivity.this;
     private EditText mEditTextKey;
     private EditText mEditTextValue;
+    private List<PrefData> mPrefDataList;
+    private PrefAdapter mPrefAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerViewPrefValues = (RecyclerView) findViewById(R.id.recycler_view_pref_values);
         recyclerViewPrefValues.setLayoutManager(new LinearLayoutManager(mContext));
+        mPrefDataList = PrefUtil.getAllValues(mContext);
+        mPrefAdapter = new PrefAdapter(mContext, mPrefDataList);
+        recyclerViewPrefValues.setAdapter(mPrefAdapter);
     }
 
     private void saveValueInPref() {
@@ -43,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
             PrefUtil.saveString(mContext, key, value);
             mEditTextKey.setText("");
             mEditTextValue.setText("");
+            mPrefDataList.add(new PrefData(key, value));
+            int position = mPrefAdapter.getItemCount() - 1;
+            mPrefAdapter.notifyItemInserted(position);
         }
     }
 
