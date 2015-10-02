@@ -24,6 +24,10 @@ public final class PrefUtil {
         return getPref(context).getString(key, defValue);
     }
 
+    public static void removeString(Context context, String key) {
+        getPref(context).edit().remove(key).apply();
+    }
+
     public static List<PrefData> getAllValues(Context context) {
         Map<String, ?> values = getPref(context).getAll();
         List<PrefData> prefDataList = new ArrayList<>();

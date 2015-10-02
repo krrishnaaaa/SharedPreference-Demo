@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.pcsalt.example.sharedpreferencedemo.listener.RecyclerClickListener;
+import com.pcsalt.example.sharedpreferencedemo.listener.RecyclerTouchListener;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
         mPrefDataList = PrefUtil.getAllValues(mContext);
         mPrefAdapter = new PrefAdapter(mContext, mPrefDataList);
         recyclerViewPrefValues.setAdapter(mPrefAdapter);
+        RecyclerTouchListener recyclerTouchListener = new RecyclerTouchListener(mContext, recyclerViewPrefValues, new RecyclerClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                PrefData prefData = mPrefDataList.get(position);
+                PrefUtil.removeString(mContext, prefData.key);
+                mPrefDataList.remove(position);
+                mPrefAdapter.notifyItemRemoved(position);
+            }
+        });
+        recyclerViewPrefValues.addOnItemTouchListener(recyclerTouchListener);
     }
 
     private void saveValueInPref() {
