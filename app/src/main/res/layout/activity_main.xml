@@ -39,7 +39,7 @@
         android:hint="value"/>
 
     <Button
-        android:id="@+id/button_add"
+        android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_text_key"
@@ -49,9 +49,16 @@
         android:id="@+id/view_separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/button_add"
+        android:layout_below="@+id/button_save"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:background="@color/colorAccent"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_pref_values"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/view_separator"/>
 
 </RelativeLayout>
