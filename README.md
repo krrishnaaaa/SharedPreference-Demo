@@ -1,9 +1,16 @@
-# SharedPreference-Demo
-Demo project for operations performed on SharedPreferences
+# SharedPreference Demo
 
-This app is about performing basic operations on SharedPreferences. 
-- Add a value in SharedPreferences, and
-- Remove a value from SharedPreferences.
+Demo Android app for performing basic operations on SharedPreferences.
 
-After completing the tutorial final app will look like 
-![](https://github.com/krrishnaaaa/SharedPreference-Demo/blob/master/finished.png)
+- Save key-value pairs to SharedPreferences
+- View all saved entries in a list
+- Tap an entry to remove it
+
+Built with Kotlin. Companion project for [SharedPreferences in Android — The Complete Guide](https://pcsalt.com/posts/android/sharedpreferences-android-complete-guide/).
+
+## Tech Stack
+
+- Kotlin
+- View Binding
+- Material 3
+- Min SDK 34 / Target SDK 36

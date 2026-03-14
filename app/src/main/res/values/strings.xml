@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SharedPreference Demo</string>
+    <string name="hint_key">Key</string>
+    <string name="hint_value">Value</string>
+    <string name="save">Save</string>
+    <string name="saved_values">Saved values (tap to remove)</string>
 </resources>
