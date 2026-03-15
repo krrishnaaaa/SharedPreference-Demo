@@ -6,7 +6,7 @@ Demo Android app for performing basic operations on SharedPreferences.
 - View all saved entries in a list
 - Tap an entry to remove it
 
-Built with Kotlin. Companion project for [SharedPreferences in Android — The Complete Guide](https://pcsalt.com/posts/android/sharedpreferences-android-complete-guide/).
+Built with Kotlin. Companion project for [SharedPreferences in Android — The Complete Guide](https://pcsalt.com/android/sharedpreferences-android-complete-guide/).
 
 ## Tech Stack
 
